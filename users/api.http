@@ -1,0 +1,44 @@
+@usersUrl = http://localhost:8082
+@token = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCcnlhbiIsImlhdCI6MTc3OTk5NzQ5MywiZXhwIjoxNzgwMDgzODkzfQ.Z1m8S6qhJIJwnlruDG-eFFnVJhDQlliFBncEmSAFto4
+
+### Registrar usuario
+POST {{usersUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "Bryan",
+  "password": "Burgos123"
+}
+
+### Login usuario
+POST {{usersUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "Bryan",
+  "password": "Burgos123"
+}
+
+### Validar token JWT
+GET {{usersUrl}}/api/auth/validate
+Authorization: Bearer {{token}}
+
+### Listar libros desde users
+GET {{usersUrl}}/api/users/books
+Authorization: Bearer {{token}}
+
+### Buscar libros desde users por título
+GET {{usersUrl}}/api/users/books/search?title=Refactoring
+Authorization: Bearer {{token}}
+
+### Buscar libros desde users por autor
+GET {{usersUrl}}/api/users/books/search?author=asdas
+Authorization: Bearer {{token}}
+
+### Buscar libros desde users por categoría
+GET {{usersUrl}}/api/users/books/search?category=Program
+Authorization: Bearer {{token}}
+
+### Buscar libro desde users por ID
+GET {{usersUrl}}/api/users/books/32b8e76a-bf39-45c8-8dd3-d7e584eb7651
+Authorization: Bearer {{token}}
